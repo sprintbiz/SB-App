@@ -17,5 +17,24 @@ namespace SB_App.DAL
         public System.Data.Entity.DbSet<SB_App.Models.Address> Addresses { get; set; }
 
         public System.Data.Entity.DbSet<SB_App.Models.Organization> Organizations { get; set; }
+
+        public System.Data.Entity.DbSet<SB_App.Models.Invoice> Invoices { get; set; }
+
+        public System.Data.Entity.DbSet<SB_App.Models.InvoiceService> InvoiceServices { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Invoice>()
+                        .HasRequired(m => m.Owner)
+                        .WithMany(t => t.HomeMatches)
+                        .HasForeignKey(m => m.OwnerID)
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Invoice>()
+                        .HasRequired(m => m.GuestTeam)
+                        .WithMany(t => t.AwayMatches)
+                        .HasForeignKey(m => m.GuestTeamId)
+                        .WillCascadeOnDelete(false);
+        }
     }
 }

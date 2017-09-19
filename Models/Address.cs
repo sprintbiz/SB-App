@@ -8,9 +8,19 @@ namespace SB_App.Models
 {
     public class Address
     {
+        public Address()
+        {
+            Created = DateTime.Now;
+            Updated = DateTime.Now;
+        }
+
+        public enum AddressType
+        {
+            Primary, Secondary
+        }
         public int ID { get; set; }
         public string Name { get; set; }
-        public string[] Type { get; set; }
+        public AddressType Type { get; set; }
         public string StreetName { get; set; }
         public string StreetNumber { get; set; }
         public string ZipCode { get; set; }
@@ -18,11 +28,7 @@ namespace SB_App.Models
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string CustomNbr1 { get; set; }
-        public string CustomNbr2 { get; set; }
-        public string CustomNbr3 { get; set; }
-        public string CustomNbr4 { get; set; }
-        public string CustomNbr5 { get; set; }
+
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime Created { get; set; }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SB_App.Models.Organization>
+﻿@model IEnumerable<SB_App.Models.Invoice>
 
 @{
     ViewBag.Title = "Index";
@@ -12,28 +12,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Address.Name)
+            @Html.DisplayNameFor(model => model.Customer.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Owner.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.CreateDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomNbr1)
+            @Html.DisplayNameFor(model => model.SalesDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomNbr2)
+            @Html.DisplayNameFor(model => model.PaymentDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomNbr3)
+            @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CustomNbr4)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomNbr5)
+            @Html.DisplayNameFor(model => model.PaymentMethod)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Created)
@@ -47,28 +44,25 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Address.Name)
+            @Html.DisplayFor(modelItem => item.Customer.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Owner.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Type)
+            @Html.DisplayFor(modelItem => item.CreateDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CustomNbr1)
+            @Html.DisplayFor(modelItem => item.SalesDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CustomNbr2)
+            @Html.DisplayFor(modelItem => item.PaymentDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CustomNbr3)
+            @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CustomNbr4)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomNbr5)
+            @Html.DisplayFor(modelItem => item.PaymentMethod)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Created)

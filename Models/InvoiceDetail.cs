@@ -3,32 +3,34 @@ using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SB_App.Models
 {
-    public class Organization
+    public class InvoiceService
     {
-        public Organization()
+        public InvoiceService()
         {
             Created = DateTime.Now;
             Updated = DateTime.Now;
         }
 
-        public enum OrganizationType
-        {
-            Owner, Customer
-        }
-
         public int ID { get; set; }
-        public string Name { get; set; }
-        public OrganizationType Type { get; set; }
-        public int? AddressID { get; set; }
-        public virtual Address Address { get; set; }
+        [Display(Name = "Invoice")]
+        public int InvoiceID { get; set; }
+        public virtual Invoice Invoice { get; set; }
+        [Display(Name = "Service")]
+        public int ServiceID { get; set; }
+        public virtual Service Service { get; set; }
+        public decimal Quantity { get; set; }
+        [Display(Name = "NIP")]
         public string CustomNbr1 { get; set; }
+        [Display(Name = "PESEL")]
         public string CustomNbr2 { get; set; }
+        [Display(Name = "REGON")]
         public string CustomNbr3 { get; set; }
+        [Display(Name = "Additional #1")]
         public string CustomNbr4 { get; set; }
+        [Display(Name = "Additional #2")]
         public string CustomNbr5 { get; set; }
 
         [DataType(DataType.DateTime)]
@@ -37,11 +39,5 @@ namespace SB_App.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime Updated { get; set; }
-
-        [InverseProperty("Owner")]
-        public virtual ICollection<Invoice> InvoiceOwner { get; set; }
-
-        [InverseProperty("Customer")]
-        public virtual ICollection<Invoice> InvoiceCustomer { get; set; }
     }
 }

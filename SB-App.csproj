@@ -170,6 +170,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoicesController.cs" />
+    <Compile Include="Controllers\InvoiceServicesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -181,6 +183,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\InvoiceDetail.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Tax.cs" />
@@ -350,6 +354,16 @@
     <Content Include="Views\Organizations\Details.cshtml" />
     <Content Include="Views\Organizations\Edit.cshtml" />
     <Content Include="Views\Organizations\Index.cshtml" />
+    <Content Include="Views\InvoiceServices\Create.cshtml" />
+    <Content Include="Views\InvoiceServices\Delete.cshtml" />
+    <Content Include="Views\InvoiceServices\Details.cshtml" />
+    <Content Include="Views\InvoiceServices\Edit.cshtml" />
+    <Content Include="Views\InvoiceServices\Index.cshtml" />
+    <Content Include="Views\Invoices\Create.cshtml" />
+    <Content Include="Views\Invoices\Delete.cshtml" />
+    <Content Include="Views\Invoices\Details.cshtml" />
+    <Content Include="Views\Invoices\Edit.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,112 +11,116 @@ using SB_App.Models;
 
 namespace SB_App.Controllers
 {
-    public class OrganizationsController : Controller
+    public class InvoiceServicesController : Controller
     {
         private SprintbizContext db = new SprintbizContext();
 
-        // GET: Organizations
+        // GET: InvoiceServices
         public ActionResult Index()
         {
-            var organizations = db.Organizations.Include(o => o.Address);
-            return View(organizations.ToList());
+            var invoiceServices = db.InvoiceServices.Include(i => i.Invoice).Include(i => i.Service);
+            return View(invoiceServices.ToList());
         }
 
-        // GET: Organizations/Details/5
+        // GET: InvoiceServices/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organization organization = db.Organizations.Find(id);
-            if (organization == null)
+            InvoiceService invoiceService = db.InvoiceServices.Find(id);
+            if (invoiceService == null)
             {
                 return HttpNotFound();
             }
-            return View(organization);
+            return View(invoiceService);
         }
 
-        // GET: Organizations/Create
+        // GET: InvoiceServices/Create
         public ActionResult Create()
         {
-            ViewBag.AddressID = new SelectList(db.Addresses, "ID", "Name");
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate");
+            ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name");
             return View();
         }
 
-        // POST: Organizations/Create
+        // POST: InvoiceServices/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Type,AddressID,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] Organization organization)
+        public ActionResult Create([Bind(Include = "ID,InvoiceID,ServiceID,Quantity,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] InvoiceService invoiceService)
         {
             if (ModelState.IsValid)
             {
-                db.Organizations.Add(organization);
+                db.InvoiceServices.Add(invoiceService);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AddressID = new SelectList(db.Addresses, "ID", "Name", organization.AddressID);
-            return View(organization);
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate", invoiceService.InvoiceID);
+            ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name", invoiceService.ServiceID);
+            return View(invoiceService);
         }
 
-        // GET: Organizations/Edit/5
+        // GET: InvoiceServices/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organization organization = db.Organizations.Find(id);
-            if (organization == null)
+            InvoiceService invoiceService = db.InvoiceServices.Find(id);
+            if (invoiceService == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.AddressID = new SelectList(db.Addresses, "ID", "Name", organization.AddressID);
-            return View(organization);
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate", invoiceService.InvoiceID);
+            ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name", invoiceService.ServiceID);
+            return View(invoiceService);
         }
 
-        // POST: Organizations/Edit/5
+        // POST: InvoiceServices/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Type,AddressID,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] Organization organization)
+        public ActionResult Edit([Bind(Include = "ID,InvoiceID,ServiceID,Quantity,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] InvoiceService invoiceService)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(organization).State = EntityState.Modified;
+                db.Entry(invoiceService).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AddressID = new SelectList(db.Addresses, "ID", "Name", organization.AddressID);
-            return View(organization);
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate", invoiceService.InvoiceID);
+            ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name", invoiceService.ServiceID);
+            return View(invoiceService);
         }
 
-        // GET: Organizations/Delete/5
+        // GET: InvoiceServices/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Organization organization = db.Organizations.Find(id);
-            if (organization == null)
+            InvoiceService invoiceService = db.InvoiceServices.Find(id);
+            if (invoiceService == null)
             {
                 return HttpNotFound();
             }
-            return View(organization);
+            return View(invoiceService);
         }
 
-        // POST: Organizations/Delete/5
+        // POST: InvoiceServices/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Organization organization = db.Organizations.Find(id);
-            db.Organizations.Remove(organization);
+            InvoiceService invoiceService = db.InvoiceServices.Find(id);
+            db.InvoiceServices.Remove(invoiceService);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

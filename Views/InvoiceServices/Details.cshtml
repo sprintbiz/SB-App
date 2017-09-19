@@ -1,4 +1,4 @@
-﻿@model SB_App.Models.Organization
+﻿@model SB_App.Models.InvoiceService
 
 @{
     ViewBag.Title = "Details";
@@ -7,31 +7,31 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Organization</h4>
+    <h4>InvoiceService</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Address.Name)
+            @Html.DisplayNameFor(model => model.Invoice.SalesDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address.Name)
+            @Html.DisplayFor(model => model.Invoice.SalesDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Service.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Service.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.Quantity)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Type)
+            @Html.DisplayFor(model => model.Quantity)
         </dd>
 
         <dt>

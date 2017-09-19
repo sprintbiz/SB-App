@@ -47,7 +47,7 @@ namespace SB_App.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,StreetName,StreetNumber,ZipCode,City,Country,Phone,Email,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] Address address)
+        public ActionResult Create([Bind(Include = "ID,Name,Type,StreetName,StreetNumber,ZipCode,City,Country,Phone,Email,Created,Updated")] Address address)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace SB_App.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,StreetName,StreetNumber,ZipCode,City,Country,Phone,Email,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] Address address)
+        public ActionResult Edit([Bind(Include = "ID,Name,Type,StreetName,StreetNumber,ZipCode,City,Country,Phone,Email,Created,Updated")] Address address)
         {
             if (ModelState.IsValid)
             {

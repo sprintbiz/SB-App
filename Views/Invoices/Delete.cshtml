@@ -1,4 +1,4 @@
-﻿@model SB_App.Models.Organization
+﻿@model SB_App.Models.Invoice
 
 @{
     ViewBag.Title = "Delete";
@@ -8,71 +8,63 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Organization</h4>
+    <h4>Invoice</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Address.Name)
+            @Html.DisplayNameFor(model => model.Customer.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address.Name)
+            @Html.DisplayFor(model => model.Customer.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Owner.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Owner.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Type)
+            @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Type)
+            @Html.DisplayFor(model => model.CreateDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomNbr1)
+            @Html.DisplayNameFor(model => model.SalesDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomNbr1)
+            @Html.DisplayFor(model => model.SalesDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomNbr2)
+            @Html.DisplayNameFor(model => model.PaymentDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomNbr2)
+            @Html.DisplayFor(model => model.PaymentDate)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomNbr3)
+            @Html.DisplayNameFor(model => model.Status)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomNbr3)
+            @Html.DisplayFor(model => model.Status)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomNbr4)
+            @Html.DisplayNameFor(model => model.PaymentMethod)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomNbr4)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomNbr5)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CustomNbr5)
+            @Html.DisplayFor(model => model.PaymentMethod)
         </dd>
 
         <dt>
