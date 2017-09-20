@@ -26,14 +26,14 @@ namespace SB_App.DAL
         {
             modelBuilder.Entity<Invoice>()
                         .HasRequired(m => m.Owner)
-                        .WithMany(t => t.HomeMatches)
+                        .WithMany(t => t.InvoiceOwner)
                         .HasForeignKey(m => m.OwnerID)
                         .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Invoice>()
-                        .HasRequired(m => m.GuestTeam)
-                        .WithMany(t => t.AwayMatches)
-                        .HasForeignKey(m => m.GuestTeamId)
+                        .HasRequired(m => m.Customer)
+                        .WithMany(t => t.InvoiceCustomer)
+                        .HasForeignKey(m => m.CustomerID)
                         .WillCascadeOnDelete(false);
         }
     }
