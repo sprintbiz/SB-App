@@ -8,7 +8,6 @@ namespace SB_App.Models
 {
     public class Tax
     {
-        public DateTime CurrentDate;
         public int ID { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }

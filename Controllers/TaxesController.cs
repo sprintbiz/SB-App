@@ -11,110 +11,110 @@ using SB_App.Models;
 
 namespace SB_App.Controllers
 {
-    public class UnitsController : Controller
+    public class TaxesController : Controller
     {
         private SprintbizContext db = new SprintbizContext();
 
-        // GET: Units
+        // GET: Taxes
         public ActionResult Index()
         {
-            return View(db.Unit.ToList());
+            return View(db.Tax.ToList());
         }
 
-        // GET: Units/Details/5
+        // GET: Taxes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Unit unit = db.Unit.Find(id);
-            if (unit == null)
+            Tax tax = db.Tax.Find(id);
+            if (tax == null)
             {
                 return HttpNotFound();
             }
-            return View(unit);
+            return View(tax);
         }
 
-        // GET: Units/Create
+        // GET: Taxes/Create
         public ActionResult Create()
         {
-            var viewModel = new Unit
+            var viewModel = new Tax
             {
             };
             return View(viewModel);
         }
 
-        // POST: Units/Create
+        // POST: Taxes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Code,Created,Updated")] Unit unit)
+        public ActionResult Create([Bind(Include = "ID,Name,Code,Value,Created,Updated")] Tax tax)
         {
             if (ModelState.IsValid)
             {
-                db.Unit.Add(unit);
+                db.Tax.Add(tax);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(unit);
+            return View(tax);
         }
 
-        // GET: Units/Edit/5
+        // GET: Taxes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Unit unit = db.Unit.Find(id);
-            if (unit == null)
+            Tax tax = db.Tax.Find(id);
+            if (tax == null)
             {
                 return HttpNotFound();
             }
-            return View(unit);
+            return View(tax);
         }
 
-        // POST: Units/Edit/5
+        // POST: Taxes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Code,Created,Updated")] Unit unit)
+        public ActionResult Edit([Bind(Include = "ID,Name,Code,Value,Created,Updated")] Tax tax)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(unit).State = EntityState.Modified;
+                db.Entry(tax).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(unit);
+            return View(tax);
         }
 
-        // GET: Units/Delete/5
+        // GET: Taxes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Unit unit = db.Unit.Find(id);
-            if (unit == null)
+            Tax tax = db.Tax.Find(id);
+            if (tax == null)
             {
                 return HttpNotFound();
             }
-            return View(unit);
+            return View(tax);
         }
 
-        // POST: Units/Delete/5
+        // POST: Taxes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Unit unit = db.Unit.Find(id);
-            db.Unit.Remove(unit);
+            Tax tax = db.Tax.Find(id);
+            db.Tax.Remove(tax);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
