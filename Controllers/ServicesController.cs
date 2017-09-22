@@ -40,9 +40,10 @@ namespace SB_App.Controllers
         // GET: Services/Create
         public ActionResult Create()
         {
+            var viewModel = new Service();
             ViewBag.TaxID = new SelectList(db.Tax, "ID", "Name");
             ViewBag.UnitID = new SelectList(db.Unit, "ID", "Name");
-            return View();
+            return View(viewModel);
         }
 
         // POST: Services/Create
