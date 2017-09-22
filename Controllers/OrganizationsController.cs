@@ -40,8 +40,9 @@ namespace SB_App.Controllers
         // GET: Organizations/Create
         public ActionResult Create()
         {
+            var viewModel = new Organization();
             ViewBag.AddressID = new SelectList(db.Addresses, "ID", "Name");
-            return View();
+            return View(viewModel);
         }
 
         // POST: Organizations/Create
