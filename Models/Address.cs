@@ -8,12 +8,7 @@ namespace SB_App.Models
 {
     public class Address
     {
-        public Address()
-        {
-            Created = DateTime.Now;
-            Updated = DateTime.Now;
-        }
-
+        public DateTime CurrentDate;
         public enum AddressType
         {
             Primary, Secondary
@@ -35,5 +30,10 @@ namespace SB_App.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime Updated { get; set; }
+        public Address()
+        {
+            Created = DateTime.Now;
+            Updated = DateTime.Now;
+        }
     }
 }

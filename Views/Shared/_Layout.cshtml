@@ -24,6 +24,14 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li><a data-target="#" href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b></a>
+                         <ul class="dropdown-menu">
+                             <li>@Html.ActionLink("Address Create", "Create", "Addresses")</li>
+                             <li>@Html.ActionLink("Address List", "", "Addresses")</li>
+                             <li>@Html.ActionLink("Unit Create", "Create", "Units")</li>
+                             <li>@Html.ActionLink("Unit List", "", "Units")</li>
+                         </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

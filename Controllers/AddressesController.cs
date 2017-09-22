@@ -39,7 +39,11 @@ namespace SB_App.Controllers
         // GET: Addresses/Create
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new Address
+            {
+                
+            };
+            return View(viewModel);
         }
 
         // POST: Addresses/Create
