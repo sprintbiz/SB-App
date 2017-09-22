@@ -40,9 +40,10 @@ namespace SB_App.Controllers
         // GET: Invoices/Create
         public ActionResult Create()
         {
+            var viewModel = new Invoice();
             ViewBag.CustomerID = new SelectList(db.Organizations, "ID", "Name");
             ViewBag.OwnerID = new SelectList(db.Organizations, "ID", "Name");
-            return View();
+            return View(viewModel);
         }
 
         // POST: Invoices/Create
