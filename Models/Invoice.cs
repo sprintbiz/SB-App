@@ -10,6 +10,9 @@ namespace SB_App.Models
     {
         public Invoice()
         {
+            CreateDate = DateTime.Now;
+            SalesDate = DateTime.Now;
+            PaymentDate = DateTime.Now.AddDays(14);
             Created = DateTime.Now;
             Updated = DateTime.Now;
         }
@@ -29,11 +32,17 @@ namespace SB_App.Models
         public virtual Organization Customer { get; set; }
         public int CustomerID { get; set; }
         [Display(Name = "Create Date")]
-        public decimal CreateDate { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime CreateDate { get; set; }
         [Display(Name = "Sales Date")]
-        public string SalesDate { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime SalesDate { get; set; }
         [Display(Name = "Paymen Date")]
-        public string PaymentDate { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime PaymentDate { get; set; }
         public InvoiceStatus Status { get; set; }
         [Display(Name = "Paymen Method")]
         public InvoicePaymentMethod PaymentMethod { get; set; }
