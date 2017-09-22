@@ -21,9 +21,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>
+                        <a data-target="#" href="#" data-toggle="dropdown" class="dropdown-toggle">Invoice <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Invoice Create", "Create", "Invoices")</li>
+                            <li>@Html.ActionLink("Invoice List", "", "Invoices")</li>
+                        </ul>
+                    </li>
                     <li><a data-target="#" href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b></a>
                          <ul class="dropdown-menu">
                              <li>@Html.ActionLink("Address Create", "Create", "Addresses")</li>
