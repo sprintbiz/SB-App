@@ -40,9 +40,12 @@ namespace SB_App.Controllers
         // GET: InvoiceServices/Create
         public ActionResult Create()
         {
-            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate");
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Name");
             ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name");
-            return View();
+            var viewModel = new InvoiceService
+            {
+            };
+            return View(viewModel);
         }
 
         // POST: InvoiceServices/Create
@@ -50,7 +53,7 @@ namespace SB_App.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,InvoiceID,ServiceID,Quantity,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] InvoiceService invoiceService)
+        public ActionResult Create([Bind(Include = "ID,InvoiceID,ServiceID,Quantity,Created,Updated")] InvoiceService invoiceService)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +62,7 @@ namespace SB_App.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate", invoiceService.InvoiceID);
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Name", invoiceService.InvoiceID);
             ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name", invoiceService.ServiceID);
             return View(invoiceService);
         }
@@ -76,7 +79,7 @@ namespace SB_App.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate", invoiceService.InvoiceID);
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Name", invoiceService.InvoiceID);
             ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name", invoiceService.ServiceID);
             return View(invoiceService);
         }
@@ -86,7 +89,7 @@ namespace SB_App.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,InvoiceID,ServiceID,Quantity,CustomNbr1,CustomNbr2,CustomNbr3,CustomNbr4,CustomNbr5,Created,Updated")] InvoiceService invoiceService)
+        public ActionResult Edit([Bind(Include = "ID,InvoiceID,ServiceID,Quantity,Created,Updated")] InvoiceService invoiceService)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +97,7 @@ namespace SB_App.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "SalesDate", invoiceService.InvoiceID);
+            ViewBag.InvoiceID = new SelectList(db.Invoices, "ID", "Name", invoiceService.InvoiceID);
             ViewBag.ServiceID = new SelectList(db.Services, "ID", "Name", invoiceService.ServiceID);
             return View(invoiceService);
         }

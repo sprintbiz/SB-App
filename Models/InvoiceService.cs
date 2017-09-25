@@ -22,17 +22,6 @@ namespace SB_App.Models
         public int ServiceID { get; set; }
         public virtual Service Service { get; set; }
         public decimal Quantity { get; set; }
-        [Display(Name = "NIP")]
-        public string CustomNbr1 { get; set; }
-        [Display(Name = "PESEL")]
-        public string CustomNbr2 { get; set; }
-        [Display(Name = "REGON")]
-        public string CustomNbr3 { get; set; }
-        [Display(Name = "Additional #1")]
-        public string CustomNbr4 { get; set; }
-        [Display(Name = "Additional #2")]
-        public string CustomNbr5 { get; set; }
-
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime Created { get; set; }

@@ -31,6 +31,7 @@ namespace SB_App.Models
         [Display(Name = "Customer")]
         public virtual Organization Customer { get; set; }
         public int CustomerID { get; set; }
+        public string Name { get; set; }
         [Display(Name = "Create Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

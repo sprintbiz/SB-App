@@ -40,9 +40,11 @@ namespace SB_App.Controllers
         // GET: Invoices/Create
         public ActionResult Create()
         {
-            var viewModel = new Invoice();
             ViewBag.CustomerID = new SelectList(db.Organizations, "ID", "Name");
             ViewBag.OwnerID = new SelectList(db.Organizations, "ID", "Name");
+            var viewModel = new Invoice
+            {
+            };
             return View(viewModel);
         }
 
@@ -51,7 +53,7 @@ namespace SB_App.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,OwnerID,CustomerID,CreateDate,SalesDate,PaymentDate,Status,PaymentMethod,Created,Updated")] Invoice invoice)
+        public ActionResult Create([Bind(Include = "ID,Name,OwnerID,CustomerID,CreateDate,SalesDate,PaymentDate,Status,PaymentMethod,Created,Updated")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +89,7 @@ namespace SB_App.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,OwnerID,CustomerID,CreateDate,SalesDate,PaymentDate,Status,PaymentMethod,Created,Updated")] Invoice invoice)
+        public ActionResult Edit([Bind(Include = "ID,Name,OwnerID,CustomerID,CreateDate,SalesDate,PaymentDate,Status,PaymentMethod,Created,Updated")] Invoice invoice)
         {
             if (ModelState.IsValid)
             {
